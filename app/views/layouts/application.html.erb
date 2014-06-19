@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JOYneMe</title>
+  <%= stylesheet_link_tag  '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',        'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<nav class="navbar navbar-default" role="navigation">
+  	<div class="container-fluid">
+			<div class="navbar-header">	
+				<a class="navbar-brand" href="#">JOYneMe</a>
+			</div>	
+		</div>
+	</nav>
+ <br>
+
+ <div class="row">
+ 	<div class="col-md-6 col-md-offset-3">
+
+   <%= yield %>
+  
+  </div>
+  <div class="col-md-3"></div>
+ </div>
+
+</body>
+</html>
