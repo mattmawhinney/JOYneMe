@@ -1,10 +1,12 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :require_logged_in
 
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+    # @events = current_user.events.all
   end
 
   # GET /events/1
@@ -15,6 +17,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    # @event = current_user.events.new
   end
 
   # GET /events/1/edit
@@ -24,7 +27,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.new(event_params)
+    # @event = Event.new(event_params)
 
     respond_to do |format|
       if @event.save
@@ -64,11 +68,12 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = current_user.notes.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params[:event]
+      params.require(:event).permit(:descriptio, :date, :time)
+      # params[:event]
     end
 end
