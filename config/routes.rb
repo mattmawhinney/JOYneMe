@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+
   root to: 'sessions#new'
   resource :sessions
   resources :users
