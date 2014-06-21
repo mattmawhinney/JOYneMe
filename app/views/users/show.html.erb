@@ -2,6 +2,8 @@
 
 <div class="container">
   <div class="row">
+    
+
     <div class="col-md-3">
       <div class="profile-left">
         <%= image_tag("#{@user.username.downcase}.jpg", class: "img-responsive profile-pic") %>
@@ -10,17 +12,23 @@
         <%= @user.username.capitalize %>
       </div>
       <hr>
-      <div class="profile-left">
         <% if @user.city %>
+        <div class="profile-left">
           <i class="fa fa-compass"></i> 
           <%= @user.city %>
+        </div>
         <% end %>
-      </div>
-     
-      <p>Hello World</p>
-      <p>Hello World</p>
-      <p>Hello World</p>
-      <p>Hello World</p>
+         <% if @user.email %>
+         <div class="profile-left">
+          <i class="fa fa-envelope-o"></i>
+          <%= @user.email %>
+        </div>
+        <% end %>
+         <div class="profile-left">
+          <i class="fa fa-clock-o"></i>
+          Joined <%= @user.created_at.strftime("%b %d, %Y") %>
+        </div>
+        <hr>
     </div>
 
     <div class="col-md-9">
