@@ -3,11 +3,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="#">
-        <%= image_tag("#{@user.username}.jpg", class: "img-responsive profile-pic") %>
-
-
+      <div class="profile-left">
+        <%= image_tag("#{@user.username.downcase}.jpg", class: "img-responsive profile-pic") %>
       </div>
+       <div class="profile-left">
+        <%= @user.username.capitalize %>
+      </div>
+      <hr>
+      <div class="profile-left">
+        <% if @user.city %>
+          <i class="fa fa-compass"></i> 
+          <%= @user.city %>
+        <% end %>
+      </div>
+     
       <p>Hello World</p>
       <p>Hello World</p>
       <p>Hello World</p>

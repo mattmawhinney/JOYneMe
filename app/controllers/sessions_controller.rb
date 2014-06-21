@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   	if @user
   		session[:user_id] = @user.id
-  		redirect_to events_path, notice: 'User logged in successfully!'
+  		redirect_to user_path(@user), notice: 'User logged in successfully!'
   	else 
   		render :new
     end
