@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  # before_action :require_logged_in, only: [:show, :edit, :update, :destroy]
+  before_action :require_logged_in, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
