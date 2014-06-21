@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
 
 
   def destroy 
+    session.clear
+    redirect_to root_path
     # @user.destroy
     # respond_to do |format|
     #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
