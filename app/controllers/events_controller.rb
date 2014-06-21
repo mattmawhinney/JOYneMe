@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :require_logged_in, only: [:index, :show, :edit, :update, :destroy]
+  before_action :require_logged_in, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -16,8 +16,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
-    # @event = current_user.events.new
+    # @event = Event.new
+    @event = current_user.events.new
   end
 
   # GET /events/1/edit
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -73,7 +73,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:descriptio, :date, :time)
+      params.require(:event).permit(:description, :date, :time, :user_id)
       # params[:event]
     end
 end
