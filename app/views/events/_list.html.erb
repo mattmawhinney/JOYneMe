@@ -1,0 +1,41 @@
+
+
+
+
+	
+
+
+
+
+
+
+			
+<table class="table">
+	<thead>
+		<tr>
+			<th>Event</th>
+			<th>Location</th>
+			<th>Going</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<% @events.each do |event| %>
+		
+
+			<%= content_tag_for(:tr, event) do %>
+				<td><%= event.description %> </td>
+				<td><%= event.location %> </td>
+				<td><%= event.users.count %> </td>
+			<% end %>
+			
+
+
+		
+
+		<% end %>
+
+	</tbody>
+
+
+</table>
