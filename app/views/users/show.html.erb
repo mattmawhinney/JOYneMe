@@ -29,14 +29,13 @@
           Joined <%= @user.created_at.strftime("%b %d, %Y") %>
         </div>
         <hr>
-        <button class="btn btn-lg btn-custom">
+        
 
-          <%= link_to 'Create New Event', user_events_new_path(@user) %>
-
-
-        </button>
-
-
+          <%= link_to user_events_new_path(@user) do %>
+            <button class="btn btn-lg btn-custom">
+              Create New Event
+            </button>
+          <% end %>
     </div>
 
     <div class="col-md-9">
