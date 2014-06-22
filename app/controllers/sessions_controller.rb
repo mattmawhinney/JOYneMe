@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
   		session[:user_id] = @user.id
   		redirect_to user_path(@user), notice: 'User logged in successfully!'
   	else 
-  		render :new
+      #flash
+  		redirect_to root_path
     end
   end
 
