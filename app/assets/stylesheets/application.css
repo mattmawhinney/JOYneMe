@@ -14,8 +14,20 @@
  *= require_self
  */
 
+ @import url(http://fonts.googleapis.com/css?family=Anton);
+ @import url(http://fonts.googleapis.com/css?family=Montserrat);
+ @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
  .profile-pic {
 
  	border-radius: 10px;
+
+ }
+
+ a.navbar-brand {
+
+ 	/*font-family: 'Anton', sans-serif; */
+ 	font-family: 'Montserrat', sans-serif; 
+ 	/*font-family: 'Bree Serif', serif;*/
 
  }
