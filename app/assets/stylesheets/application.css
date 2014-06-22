@@ -18,16 +18,39 @@
  @import url(http://fonts.googleapis.com/css?family=Montserrat);
  @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 
+ 
+ .navbar-default {
+
+ 	background-color:  #00b4ae;
+ 	/*border-color: */
+ }
+
+  .navbar-brand {
+
+ 	/*font-family: 'Anton', sans-serif; */
+ 	font-family: 'Montserrat', sans-serif; 
+ 	/*font-family: 'Bree Serif', serif;*/
+ 
+
+ }
+
+   .navbar-brand a:link {
+
+
+		color: #fff;
+
+ }
+
+
+
  .profile-pic {
 
  	border-radius: 10px;
 
  }
 
- a.navbar-brand {
 
- 	/*font-family: 'Anton', sans-serif; */
- 	font-family: 'Montserrat', sans-serif; 
- 	/*font-family: 'Bree Serif', serif;*/
 
- }
+
+
+
