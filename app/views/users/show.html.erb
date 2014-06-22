@@ -29,7 +29,12 @@
           Joined <%= @user.created_at.strftime("%b %d, %Y") %>
         </div>
         <hr>
-        <button class="btn btn-lg btn-custom">Create New Event</button>
+        <button class="btn btn-lg btn-custom">
+
+          <%= link_to 'Create New Event', user_events_new_path(@user) %>
+
+
+        </button>
 
 
     </div>
@@ -37,8 +42,7 @@
     <div class="col-md-9">
 
       <%= render partial: 'events/list' %>
-      <p>Hello World</p>
-      <p>Hello World</p>
+     
       
     </div>
 
