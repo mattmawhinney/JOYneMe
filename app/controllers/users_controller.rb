@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_logged_in, only: [:index, :show, :edit, :update, :destroy]
-  layout 'logged_in'
+  
   # GET /users
   # GET /users.json
   def index
