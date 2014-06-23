@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @event = Event.new
     @events = Event.all
+    @attendee = Attendee.new
   end
 
   # GET /users/new

@@ -25,10 +25,11 @@ class AttendeesController < ApplicationController
   # POST /attendees.json
   def create
     @attendee = Attendee.new(attendee_params)
+    @attendee.user = current_user
 
     respond_to do |format|
       if @attendee.save
-        format.html { redirect_to @attendee, notice: 'Attendee was successfully created.' }
+        format.html { redirect_to :back }
         format.json { render :show, status: :created, location: @attendee }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class AttendeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendee_params
-      params[:attendee]
+      params.require(:attendee).permit(:event_id)
     end
 end
