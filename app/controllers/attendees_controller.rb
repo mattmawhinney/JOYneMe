@@ -1,5 +1,6 @@
 class AttendeesController < ApplicationController
-  before_action :set_attendee, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendee, only: [:show, :edit, :destroy, :update]
+  # before_action :set_destroy_attendee, only: [:destroy]
 
   # GET /attendees
   # GET /attendees.json
@@ -68,18 +69,26 @@ class AttendeesController < ApplicationController
   # DELETE /attendees/1
   # DELETE /attendees/1.json
   def destroy
+    
     @attendee.destroy
     respond_to do |format|
-      format.html { redirect_to attendees_url, notice: 'Attendee was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Attendee was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attendee
       @attendee = Attendee.find(params[:id])
     end
+
+    # def set_destroy_attendee
+    #   @attendee = Attendee.where("user_id = 16 AND event_id = 1")
+
+    # end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendee_params
@@ -95,5 +104,5 @@ class AttendeesController < ApplicationController
      attendees.include?(current_user.id)
 
   end 
-    
+
 end

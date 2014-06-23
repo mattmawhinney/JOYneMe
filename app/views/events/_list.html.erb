@@ -13,6 +13,8 @@
 		<% @events.each do |event| %>
 		
 
+
+
 			<%= content_tag_for(:tr, event) do %>
 				<td><%= event.description %> </td>
 				<td><%= event.location %> </td>
@@ -21,6 +23,11 @@
 						<%= f.hidden_field :event_id, value: event.id %>
             <%= f.submit %>
           <% end %> </td>
+
+
+          
+
+         <td><%= link_to 'Unjoin', @user.attendees.find_by(event: event) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			<% end %>
 			
 
