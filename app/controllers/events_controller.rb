@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :require_logged_in, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  before_action :set_event, only: [ :edit, :update, :destroy]
+  before_action :set_show_event, only: [:show]
+  before_action :require_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -12,7 +13,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    # @events = Event.all
+    
   end
 
   # GET /events/new
@@ -74,6 +75,12 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_show_event 
+      
+      @event = Event.find(params[:id])
+
+    end 
+
     def set_event
       @event = current_user.events.find(params[:id])
     end
