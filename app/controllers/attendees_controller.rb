@@ -24,19 +24,32 @@ class AttendeesController < ApplicationController
   # POST /attendees
   # POST /attendees.json
   def create
-    @attendee = Attendee.new(attendee_params)
-    @attendee.user = current_user
 
-    respond_to do |format|
-      if @attendee.save
-        format.html { redirect_to :back }
-        format.json { render :show, status: :created, location: @attendee }
-      else
-        format.html { render :new }
-        format.json { render json: @attendee.errors, status: :unprocessable_entity }
+    unless check_attending
+
+      # raise StandardError
+    
+
+      @attendee = Attendee.new(attendee_params)
+      
+      @attendee.user = current_user
+
+      respond_to do |format|
+        if @attendee.save
+          format.html { redirect_to :back }
+          format.json { render :show, status: :created, location: @attendee }
+        else
+          format.html { render :new }
+          format.json { render json: @attendee.errors, status: :unprocessable_entity }
+        end
       end
-    end
+     else
+      redirect_to :back, notice: 'Already signed up'
+      # flash[:notice] = 
+    end 
   end
+
+ 
 
   # PATCH/PUT /attendees/1
   # PATCH/PUT /attendees/1.json
@@ -72,4 +85,15 @@ class AttendeesController < ApplicationController
     def attendee_params
       params.require(:attendee).permit(:event_id)
     end
+
+     def check_attending 
+
+     @event = Event.find(attendee_params[:event_id])
+
+     attendees = @event.attendees.map {|attendee| attendee.user_id} 
+
+     attendees.include?(current_user.id)
+
+  end 
+    
 end
