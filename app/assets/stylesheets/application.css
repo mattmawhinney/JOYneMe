@@ -88,7 +88,7 @@
  /*Create New Event Page*/
 
 
- #new_event {
+ .new_event {
 
  	border: 3px solid #00b4ae;
   border-radius: 5px;
