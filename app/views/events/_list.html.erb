@@ -17,10 +17,8 @@
 				<td><%= event.description %> </td>
 				<td><%= event.location %> </td>
 				<td><%= event.users.count %> </td>
-				<td> <%= link_to user_events_join_path(@user) do %>
-            <button class="btn btn-lg btn-custom">
-              Create New Event
-            </button>
+				<td> <%= form_tag user_events_join_path(event) do %>
+            <%= submit_tag %>
           <% end %> </td>
 			<% end %>
 			
