@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'users#new'
   
 
-  post 'events/join'
+  
 
 
   resource :sessions
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users do
 
     get 'events/new'
+    post 'events/join'
 
 
   end 

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [ :edit, :update, :destroy]
-  before_action :set_show_event, only: [:show]
+  before_action :set_show_event, only: [:show, :join]
   before_action :require_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /events
@@ -72,6 +72,14 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def join 
+    #define which @event
+    @attendee = @event.attendees.create(user_id: current_user.id)
+
+
+  end 
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
