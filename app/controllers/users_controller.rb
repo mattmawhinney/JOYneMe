@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+
         format.html { redirect_to new_sessions_path, notice: 'User was successfully created. Login' }
         format.json { render :show, status: :created, location: @user }
       else
