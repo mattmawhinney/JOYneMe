@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [ :edit, :update, :destroy ]
   before_action :require_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
-  before_action :set_event_to_join, only: [:join]
+  
 
   # GET /events
   # GET /events.json
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @attendee_destroy = Attendee.where("user_id = ? AND event_id = 1", params[:user_id])
+   
     
   end
 
@@ -87,11 +87,11 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_event_to_join 
+    # def set_event_to_join 
       
-      @event = Event.find(params[:id])
+    #   @event = Event.find(params[:id])
 
-    end 
+    # end 
 
     def set_event
       @event = current_user.events.find(params[:id])
