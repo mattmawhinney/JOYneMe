@@ -24,10 +24,12 @@
             <%= f.submit %>
           <% end %> </td>
 
+         <td><%= link_to 'Unjoin', attendee_path(@attendee_destroy.map {|x| x.id }.join.to_i)  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 
           
 
-         <td><%= link_to 'Unjoin', @user.attendees.find_by(event: event) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
 			<% end %>
 			
 

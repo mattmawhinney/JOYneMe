@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     @event = Event.new
     @events = Event.all
     @attendee = Attendee.new
+    @attendee_destroy = Attendee.where("user_id = 16 AND event_id = 1")
+    # raise StandardError
   end
 
   # GET /users/new

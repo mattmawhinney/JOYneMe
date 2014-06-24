@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @attendee_destroy = Attendee.where("user_id = ? AND event_id = 1", params[:user_id])
     
   end
 
