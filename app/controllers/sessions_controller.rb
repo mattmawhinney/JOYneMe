@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
 
   	if @user
   		session[:user_id] = @user.id
-  		redirect_to user_path(@user), notice: 'User logged in successfully!'
+
+  		redirect_to user_path(current_user), notice: 'User logged in successfully!'
   	else 
       #flash
   		redirect_to root_path
