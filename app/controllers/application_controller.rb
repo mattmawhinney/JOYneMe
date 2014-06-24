@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def restrict_to_current_user
       if current_user.id != params[:id].to_i 
       
-        redirect_to root_path
+        redirect_to user_path(current_user), notice: 'You may only see your page.'
       end 
   end 
 
