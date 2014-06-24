@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
 
-  resources :events
+
+  resources :attendees
 
   root to: 'users#new'
+  
+
+  
+
+
   resource :sessions
+  resources :events
   resources :users do
 
     get 'events/new'
+    post 'events/join'
+
 
   end 
 

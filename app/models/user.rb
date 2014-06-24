@@ -14,13 +14,7 @@ class User < ActiveRecord::Base
 
 
 	has_many :events
-
-
-	# def log_in
-	# 	session[:user_id] = @user.id
-  
-
-	# end 
+	has_many :attendees
 
 	
 end

@@ -13,7 +13,14 @@ class UsersController < ApplicationController
   def show
     @event = Event.new
     @events = Event.all
+    @attendee = Attendee.new
+    # raise StandardError
   end
+
+  # def attendee_destroy(event_id) 
+  #   Attendee.where("user_id = ? AND #{event_id} = ?", params[:id])
+
+  # end 
 
   # GET /users/new
   def new
