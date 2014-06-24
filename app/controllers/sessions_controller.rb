@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
 
   def destroy 
-    session.clear
+    session.delete :user_id
     redirect_to root_path
     # @user.destroy
     # respond_to do |format|
