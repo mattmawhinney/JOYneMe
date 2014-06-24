@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @event = Event.new
     @events = Event.all
     @attendee = Attendee.new
-    @attendee_destroy = Attendee.where("user_id = ? AND event_id = 18", params[:id] )
+    # @attendee_destroy = Attendee.where("user_id = ? AND event_id = 18", params[:id] )
     # raise StandardError
   end
 
