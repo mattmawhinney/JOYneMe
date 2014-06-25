@@ -5,13 +5,21 @@
     
 
     <div class="col-md-3">
-      <div class="profile-left">
+      <div class="profile-left text-center">
 
-        <%= image_tag @user.avatar.url, class: "img-responsive profile-pic" %>
-       
+        <% if @user.avatar.url == "/images/original/missing.png" %>
+          <i class="fa fa-coffee place-holder"></i>
+
+        <% else %>
+          <%= image_tag @user.avatar.url, class: "img-responsive profile-pic" %>
+
+        <% end %>
+
+
       </div>
-       <div class="profile-left">
-        <%= @user.username.capitalize %>
+       <div class="profile-left text-center">
+           <%= @user.username.capitalize %>
+        
       </div>
       <hr>
         <% if @user.city %>
