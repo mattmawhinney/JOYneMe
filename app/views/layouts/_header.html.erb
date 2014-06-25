@@ -12,7 +12,30 @@
   	<div class="container-fluid">
 			<div class="navbar-header">	
 				<a class="navbar-brand" href="/">WythMe</a>
-			</div>	
+			</div>
+
+			<!-- different views in the navbar based on log-in-status/current user -->
+
+			<div class="pull-right">
+			<% if current_user %>
+					<span>
+							<%= link_to user_path(current_user) do %>
+									Hello, <%= current_user.username.capitalize %>!
+							<% end %>
+
+					</span>
+					<span> | <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+			<% else %>
+
+				<%= render 'sessions/form' %>
+
+
+		 <% end %> 
+		 </div> <!--class="#pull-right" -->
+
+			
+
+
 		</div>
 	</nav>
  <br>
