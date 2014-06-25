@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   resources :attendees
 
   root to: 'users#index'
-  
-
-  
-
 
   resource :sessions
   resources :events
