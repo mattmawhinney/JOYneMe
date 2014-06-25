@@ -1,4 +1,3 @@
-		
 <table class="table">
 	<thead>
 		<tr>
@@ -16,29 +15,25 @@
 				<td><%= event.description %> </td>
 				<td><%= event.location %> </td>
 				<td><%= event.users.count %> </td>
-				<td> <%= form_for(@attendee) do |f| %>
+				<td> 
+					<%= form_for(@attendee) do |f| %>
 						<%= f.hidden_field :event_id, value: event.id %>
             <%= f.submit %>
-          <% end %> </td>
-
+          <% end %> 
+        </td>
         <!-- conditional logic for identifying whether or not a user is going to an event
         and than passing the id of the attendee object to the attendee destroy path --> 
 
         <% event_attendee = event.attendees.find_by user_id: current_user.id %>
-
         <% if event_attendee.nil? %>
-
           <td> Not going!</td>
-
         <% else %>
 
           <td><%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-        <% end %>
-        
-			<% end %>
-			
-		<% end %>
+        <% end %> <!-- if event_attendee.nil? -->
+			<% end %> <!-- content_tag -->
+		<% end %> <!-- @event.each do -->
 
 	</tbody>
 
