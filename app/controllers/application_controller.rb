@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
   	return false 
   end 
 
+
+  def require_not_logged_in
+    return true if !current_user
+    redirect_to current_user
+  end
+
   def restrict_to_current_user
       if current_user.id != params[:id].to_i 
       
