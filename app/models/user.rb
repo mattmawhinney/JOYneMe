@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 
 	#password confirmation through input fields currently not working
 	has_secure_password 
-	validates_length_of   :password, :minimum => 8
+	validates_length_of   :password, :minimum => 8, :allow_nil => true
+
 	validates_presence_of :username, :email
 	validates_length_of   :username, :maximum => 30
 	validates_format_of   :email, :with => EmailRegex

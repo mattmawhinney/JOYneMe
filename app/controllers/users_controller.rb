@@ -42,7 +42,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        #log user in upon sign up
         session[:user_id] = @user.id
+        #redirect to their home page 
         format.html { redirect_to user_path(current_user), notice: 'Welcome to WythMe!' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -55,8 +57,12 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    # raise StandardError
     respond_to do |format|
+     
+      # raise StandardError
       if @user.update(user_params)
+
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -86,7 +92,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :city, :about, :first_name, :last_name, :avatar )
+      params.require(:user).permit(:username, :email, :password, :city, :about, :first_name, :last_name, :avatar)
 
     end
 end

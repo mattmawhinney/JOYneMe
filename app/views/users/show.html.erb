@@ -6,7 +6,9 @@
 
     <div class="col-md-3">
       <div class="profile-left">
-        <%= image_tag("#{@user.username.downcase}.jpg", class: "img-responsive profile-pic") %>
+
+        <%= image_tag @user.avatar.url, class: "img-responsive profile-pic" %>
+       
       </div>
        <div class="profile-left">
         <%= @user.username.capitalize %>
