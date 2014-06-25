@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_logged_in, only: [:index, :show, :edit, :update, :destroy]
+  before_action :require_logged_in, only: [:show, :edit, :update, :destroy]
   before_action :restrict_to_current_user, only: [:show]
   
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+   
+    @user = User.new
+    @events = Event.all
   end
 
   # GET /users/1
