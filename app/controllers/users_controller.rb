@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_logged_in, only: [:show, :edit, :update, :destroy]
-  before_action :restrict_to_current_user, only: [:show]
+  before_action :restrict_to_current_user, only: [:show, :edit]
   
   # GET /users
   # GET /users.json
@@ -86,6 +86,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password)
+      params.require(:user).permit(:username, :email, :password, :city, :about, :first_name, :last_name, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at )
+
     end
 end
