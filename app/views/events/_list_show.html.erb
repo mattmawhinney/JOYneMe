@@ -3,10 +3,10 @@
 		<tr>
 			<th>Event</th>
 			<th>Location</th>
-			<th>Going</th>
-			<th>Join Event</th>
-			<th>Leave Event</th>
+			<th>Number Going</th>
 			<th>More Info</th>
+			<th>Your Event Status</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -17,25 +17,29 @@
 				<td><%= event.description %> </td>
 				<td><%= event.location %> </td>
 				<td><%= event.users.count %> </td>
+
+				<td> <%= link_to 'Event Page', event_path(event)  %> </td>
+				
 				<td> 
-					<%= form_for(@attendee) do |f| %>
-						<%= f.hidden_field :event_id, value: event.id %>
-            <%= f.submit %>
-          <% end %> 
-        </td>
 
-        <!-- conditional logic for identifying whether or not a user is going to an event
-        and then passing the id of the attendee object to the attendee destroy path --> 
-        <td>
-     	  	<!-- can probably move into controller  -->
-        	<% event_attendee = event.attendees.find_by user_id: current_user.id %>
-      
-        	<% if event_attendee.nil? %>
-          	 Not going!
-        	<% else %>
+					<!-- identify whehter the current user is an attendee of the event being iterated through
+					it feels like this method belongs in the users_controller but it is making use of 
+					the specific event that is being iterated through -->
 
-						<%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %>
-        	<% end %> <!-- if event_attendee.nil? -->
+					<% event_attendee = event.attendees.find_by user_id: current_user.id %>
+					
+					<% if event_attendee.nil? %>
+
+						<%= form_for(@attendee) do |f| %>
+							<%= f.hidden_field :event_id, value: event.id %>
+	            <%= f.submit %>
+	          <% end %> 
+
+	        <% else %>
+
+	        	<%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %>
+
+	       	<% end %>
 
         </td>
 

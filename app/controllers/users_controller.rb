@@ -20,6 +20,8 @@ class UsersController < ApplicationController
       @event = Event.new
       @events = Event.all
       @attendee = Attendee.new
+
+      
          
   end
 
