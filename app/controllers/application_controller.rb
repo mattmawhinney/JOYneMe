@@ -5,31 +5,35 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-
-
   def current_user
   	@current_user ||= User.find_by(id: session[:user_id])
   end 
 
-
   def require_logged_in
-  	return true if current_user
+  	if current_user
+      true
+    else 
+       redirect_to root_path, notice: 'You must be logged in to see this page.'
+    end 
+    
 
-  	redirect_to root_path 
-  	return false 
+   #  return true if current_user
+  	#  redirect_to root_path 
+  	# return false 
   end 
 
-
   def require_not_logged_in
-    return true if !current_user
-    redirect_to current_user
+    if !current_user
+      true 
+    else 
+      redirect_to current_user
+    end 
   end
 
   def restrict_to_current_user
-      if current_user.id != params[:id].to_i 
-      
-        redirect_to user_path(current_user), notice: 'You may only see your page.'
-      end 
+    if current_user && current_user.id != params[:id].to_i 
+      redirect_to user_path(current_user), notice: 'You may only see your page and edit your own profile.'
+    end 
   end 
 
 end

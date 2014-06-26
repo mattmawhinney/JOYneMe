@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [ :edit, :update, :destroy ]
   before_action :require_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :restrict_to_current_user, only: [:edit, :update, :destroy]
   
 
   # GET /events

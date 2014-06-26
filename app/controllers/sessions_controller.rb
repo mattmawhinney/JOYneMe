@@ -1,31 +1,22 @@
 class SessionsController < ApplicationController
+  before_action :require_not_logged_in, only: [:new, :create]
+  
   def new
   end
 
   def create
   	@user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
-
   	if @user
   		session[:user_id] = @user.id
-
   		redirect_to user_path(current_user), notice: 'User logged in successfully!'
   	else 
-      #flash
-  		redirect_to root_path
+  		redirect_to root_path, notice: 'Incorrect username/password combination.'
     end
   end
 
-
   def destroy 
     session.delete :user_id
-    redirect_to root_path
-    # @user.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    redirect_to root_path, notice: 'You have sucessfully logged out.'
   end
-
-
 
 end

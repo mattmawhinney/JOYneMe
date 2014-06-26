@@ -21,21 +21,24 @@
             <%= f.submit %>
           <% end %> 
         </td>
+
         <!-- conditional logic for identifying whether or not a user is going to an event
         and than passing the id of the attendee object to the attendee destroy path --> 
+        <% if current_user.nil? %>
+        		<% redirect_to :back %>
+        	
+        
+        <% else %> 
 
-        <% event_attendee = event.attendees.find_by user_id: current_user.id %>
-        <% if event_attendee.nil? %>
-          <td> Not going!</td>
-        <% else %>
+        	<% event_attendee = event.attendees.find_by user_id: current_user.id %>
+        	<% if event_attendee.nil? %>
+          	<td> Not going!</td>
+        	<% else %>
+						<td><%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        	<% end %> <!-- if event_attendee.nil? -->
 
-          <td><%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-        <% end %> <!-- if event_attendee.nil? -->
+        <% end %> <!-- !current_user.nil?  -->
 			<% end %> <!-- content_tag -->
 		<% end %> <!-- @event.each do -->
-
 	</tbody>
-
-
 </table>
