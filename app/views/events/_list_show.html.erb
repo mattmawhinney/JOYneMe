@@ -4,7 +4,6 @@
 			<th>Event</th>
 			<th>Location</th>
 			<th>Number Going</th>
-			<th>More Info</th>
 			<th>Your Event Status</th>
 			
 		</tr>
@@ -14,14 +13,14 @@
 		<% @events.each do |event| %>
 
 			<%= content_tag_for(:tr, event) do %>
-				<td><%= event.description %> </td>
+				<td>
+					<%= link_to event_path(event) do %>
+							<%= event.description %> 
+					<% end %>
+				</td>
 				<td><%= event.location %> </td>
 				<td><%= event.users.count %> </td>
-
-				<td> <%= link_to 'Event Page', event_path(event)  %> </td>
-				
 				<td> 
-
 					<!-- identify whehter the current user is an attendee of the event being iterated through
 					it feels like this method belongs in the users_controller but it is making use of 
 					the specific event that is being iterated through -->
