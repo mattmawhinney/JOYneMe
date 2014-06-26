@@ -7,8 +7,7 @@ class UsersController < ApplicationController
   
   # GET /users
   # GET /users.json
-  def index
-   
+  def index 
     @user = User.new
     @events = Event.all
   end
@@ -16,13 +15,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
       @event = Event.new
       @events = Event.all
-      @attendee = Attendee.new
-
-      
-         
+      @attendee = Attendee.new       
   end
 
   # def attendee_destroy(event_id) 
@@ -37,6 +32,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    
   end
 
   # POST /users
@@ -61,19 +57,23 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    
-    respond_to do |format|
-     
-     
-      if @user.update(user_params)
-
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+    #make sure an image is submitted 
+    if params.keys.include?("user")
+        respond_to do |format|
+          if @user.update(user_params)
+            format.html { redirect_to @user, notice: 'User was successfully updated.' }
+            format.json { render :show, status: :ok, location: @user }
+          else
+            format.html { render :edit }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+          end
+         end 
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+
+         #need to redirect back to profile tab
+         redirect_to :back , notice: 'Please choose an image to upload.'
+
       end
-    end
   end
 
   # DELETE /users/1
