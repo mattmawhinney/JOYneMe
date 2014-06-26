@@ -15,7 +15,7 @@
 			<%= content_tag_for(:tr, event) do %>
 				<td>
 					<%= link_to event_path(event) do %>
-							<%= event.description %> 
+							<%= event.description.capitalize %> 
 					<% end %>
 				</td>
 				<td><%= event.location %> </td>
