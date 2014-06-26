@@ -8,15 +8,18 @@
 		<hr>
 		
 		<% if !@event.location.nil? %>
-			<p><em>Meet at:</em><%= @event.location.capitalize %> </p>
+			<p><em>Meet at: </em><%= @event.location.capitalize %> </p>
 		<% end %> 
 
 		<% if !@event.date.nil? %>
-			<p><em>Date:</em><%= @event.date %> </p>
+			<p><em>Date: </em><%= @event.date.strftime("%A") %> </p>
 		<% end %> 
 
 		<% if !@event.date.nil? %>
-			<p><em>Time:</em><%= @event.time %> </p>
+
+		<!-- shoud use time_tag here  -->
+			<p><em>Time:</em> <%= @event.time.strftime('%I:%M%p') %> </p>
+		
 		<% end %> 
 
 		<hr> 
