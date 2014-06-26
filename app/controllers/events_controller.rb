@@ -33,6 +33,10 @@ class EventsController < ApplicationController
 
     @attendees = User.find(attendee_object_ids)
 
+    #variables for distance_of_time_in_words method 
+    # @from_time = Time.now 
+
+
 
    
     
