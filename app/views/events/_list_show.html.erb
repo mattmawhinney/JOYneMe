@@ -4,7 +4,9 @@
 			<th>Event</th>
 			<th>Location</th>
 			<th>Going</th>
-			<th>Join</th>
+			<th>Join Event</th>
+			<th>Leave Event</th>
+			<th>More Info</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,21 +25,20 @@
         </td>
 
         <!-- conditional logic for identifying whether or not a user is going to an event
-        and than passing the id of the attendee object to the attendee destroy path --> 
-        <% if current_user.nil? %>
-        		<% redirect_to :back %>
-        	
-        
-        <% else %> 
-
+        and then passing the id of the attendee object to the attendee destroy path --> 
+        <td>
+     	  	<!-- can probably move into controller  -->
         	<% event_attendee = event.attendees.find_by user_id: current_user.id %>
+      
         	<% if event_attendee.nil? %>
-          	<td> Not going!</td>
+          	 Not going!
         	<% else %>
-						<td><%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+						<%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %>
         	<% end %> <!-- if event_attendee.nil? -->
 
-        <% end %> <!-- !current_user.nil?  -->
+        </td>
+
 			<% end %> <!-- content_tag -->
 		<% end %> <!-- @event.each do -->
 	</tbody>
