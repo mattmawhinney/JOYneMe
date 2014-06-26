@@ -120,6 +120,27 @@
  }
 
 
+ /*Join event page*/
+
+
+.organizer {
+
+
+	border-radius: 100%;
+	/*ovewritting paperclip thumb sizing*/
+	height: 70px;
+	width: 70px;
+
+}
+
+.attendee {
+
+	border-radius: 100%;
+	height: 60px;
+	width: 60px;
+
+}
+
 
 
 

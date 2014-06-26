@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [ :edit, :update, :destroy ]
+  before_action :set_event, only: [:edit, :update, :destroy ]
+  before_action :show_events_helper, only: [:show]
   before_action :require_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :restrict_to_current_user, only: [:edit, :update, :destroy]
   
@@ -14,6 +15,25 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    id_for_event_owner = @event.user_id
+    @event_owner = User.find(id_for_event_owner)
+
+    #find all of the attendee objects for an event 
+    attendee_objects = @event.attendees
+
+    #extract their ids into an array 
+
+    attendee_object_ids = attendee_objects.map {|object| object.user_id}
+
+    #get rid of the id for the owner of the event, so they are duplicated in _list_attendees
+
+    attendee_object_ids.delete(id_for_event_owner) 
+
+    #find all the non-owner attendees of an event 
+
+    @attendees = User.find(attendee_object_ids)
+
+
    
     
   end
@@ -97,6 +117,12 @@ class EventsController < ApplicationController
     def set_event
       @event = current_user.events.find(params[:id])
     end
+
+    def show_events_helper 
+      @event = Event.find(params[:id])
+
+
+    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params

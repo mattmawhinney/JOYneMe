@@ -1,0 +1,29 @@
+<table class="table">
+	<tbody>
+		<tr>
+		<% @attendees.each do |attendee| %>
+
+		<td> 
+
+		<% if attendee.first_name %> 
+			<%= attendee.first_name.capitalize %> 
+
+		<% else %> 
+
+			<%= attendee.username.capitalize %> 
+
+		<% end %> 
+			<%= image_tag attendee.avatar.url(:thumb), class: "attendee pull-right" %>
+
+	  </td>
+			
+
+
+
+
+
+
+		<% end %> 
+ 	 </tr>
+  </tbody>
+</table>
