@@ -15,10 +15,10 @@
 			<p><em>Date: </em><%= @event.date.strftime("%A") %> </p>
 		<% end %> 
 
-		<% if !@event.date.nil? %>
+		<% if !@event.datetime.nil? %>
 
 		<!-- shoud use time_tag here  -->
-			<p><em>Time:</em> <%= @event.time.strftime('%I:%M%p') %> </p>
+			<p><em>Time:</em> <%= @event.datetime.strftime('%I:%M%p') %> </p>
 		
 		<% end %> 
 
@@ -28,7 +28,7 @@
 		<div>
 
 
-		Organizer: <%= image_tag @event_owner.avatar.url(:thumb), class: "organizer pull-right" %>
+		Organizer: <%= @event_owner.username %> <%= image_tag @event_owner.avatar.url(:thumb), class: "organizer pull-right" %>
 		<br>
 		<br>
 		<br>
