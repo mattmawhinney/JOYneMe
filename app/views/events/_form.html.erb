@@ -21,14 +21,13 @@
     <%= f.text_field :location %>
   </div>
 
-  <div class="field">
-    <%= f.label :date  %>
-    <%= f.date_field :date %>
-  </div>
+  
 
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.time_field :time %>
+  <!-- datetime_local_field? -->
+
+    <div class="field">
+    <%= f.label :datetime %>
+    <%= f.datetime_select :datetime %>
   </div>
 
   <div class="actions text-center">

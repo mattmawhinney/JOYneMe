@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+
     id_for_event_owner = @event.user_id
     @event_owner = User.find(id_for_event_owner)
 
@@ -36,9 +37,6 @@ class EventsController < ApplicationController
     #variables for distance_of_time_in_words method 
     # @from_time = Time.now 
 
-
-
-   
     
   end
 
@@ -130,7 +128,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:description, :location, :date, :time, :user_id)
+      params.require(:event).permit(:description, :location, :date, :time, :user_id, :datetime)
       # params[:event]
     end
 end

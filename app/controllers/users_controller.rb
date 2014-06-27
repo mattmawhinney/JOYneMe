@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :require_logged_in, only: [:show, :edit, :update, :destroy]
   before_action :require_not_logged_in, only: [:index]
   before_action :restrict_to_current_user, only: [:show, :edit, :update, :destroy]
-
+ 
   
   # GET /users
   # GET /users.json
@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   def show
       @event = Event.new
       @events = Event.all
-      @attendee = Attendee.new       
+      @attendee = Attendee.new   
+    
+   
   end
 
   # def attendee_destroy(event_id) 
@@ -96,7 +98,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :city, :about, :first_name, :last_name, :avatar)
+      params.require(:user).permit(:username, :email, :password, :city, :about, :first_name, :last_name, :avatar, :datetime)
 
     end
+
+   
+
 end
