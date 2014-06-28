@@ -11,7 +11,7 @@
 	</thead>
 	<tbody>
 		
-		<% @events.each do |event| %>
+		<% @events.order_by_time.each do |event| %>
 
 		<% if event.has_not_passed? %>
 
