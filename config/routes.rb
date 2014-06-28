@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   resource :sessions
-  resources :events
+  resources :events, except: :index
   resources :users do
 
     get 'events/new'

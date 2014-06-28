@@ -7,10 +7,11 @@ class EventsController < ApplicationController
 
   # GET /events
   # GET /events.json
-  def index
-    @events = Event.all
+  
+  # def index
+    # @events = Event.all
     # @events = current_user.events.all
-  end
+  # end
 
   # GET /events/1
   # GET /events/1.json
@@ -56,13 +57,12 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     # @event = Event.new(event_params)
 
-    
-    
-
     respond_to do |format|
       if @event.save
         #add the creator of an event as an attendee
+
         @attendee = @event.attendees.create(user_id: current_user.id)
+        # raise StandardError
         format.html { redirect_to user_path(@event.user), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
 
@@ -128,7 +128,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:description, :location, :date, :time, :user_id, :datetime)
+      params.require(:event).permit(:description, :location, :date, :time, :user_id, :datetime, :category)
       # params[:event]
     end
 end
