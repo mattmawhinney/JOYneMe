@@ -3,9 +3,17 @@ class Event < ActiveRecord::Base
   has_many :attendees
   has_many :users, through: :attendees
 
-  # def to_local_time
 
-  # 	datetime.utc.use_zone('EDT')
+  def has_not_passed? 
+
+    self.datetime.utc > Time.now.utc
+
+  end 
+
+
+  # def to_utc
+
+  # 	datetime.utc
 
   # end 
 

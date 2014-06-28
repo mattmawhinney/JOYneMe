@@ -13,6 +13,8 @@
 		
 		<% @events.each do |event| %>
 
+		<% if event.has_not_passed? %>
+
 			<%= content_tag_for(:tr, event) do %>
 				<td>
 					<%= link_to event_path(event) do %>
@@ -52,6 +54,7 @@
         </td>
 
 			<% end %> <!-- content_tag -->
+			<% end %> <!-- event.has_not_passed? --> 
 		<% end %> <!-- @event.each do -->
 	</tbody>
 </table>
