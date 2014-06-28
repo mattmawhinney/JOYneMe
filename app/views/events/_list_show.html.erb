@@ -23,10 +23,12 @@
 				<td><%= event.users.count %> </td>
 
 				<td>
-					<% from_time = Time.now %>
+					<% from_time = Time.now.utc %>
+
+					<% to_time = event.datetime.utc %>
 
 					<!-- need to figure out how to properly work with dates, until then... -->
-					in <%= distance_of_time_in_words(from_time, from_time + 50.minutes) %></td>
+					in <%= distance_of_time_in_words(from_time, to_time) %></td>
 				<td> 
 					<!-- identify whehter the current user is an attendee of the event being iterated through
 					it feels like this method belongs in the users_controller but it is making use of 
