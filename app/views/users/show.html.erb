@@ -9,20 +9,24 @@
         <% else %>
           <%= image_tag @user.avatar.url(:medium), class: "profile-pic" %>
         <% end %>
-        <h4 class="show-page-username"><%= @user.username.capitalize %></h4>
+        <% if @user.first_name && @user.first_name != "" %>
+            <h4 class="show-page-username"><%= @user.first_name.capitalize %></h4>
+          <% else %>
+           <h4 class="show-page-username"><%= @user.username.capitalize %></h4>
+        <% end %>
       </div>
       
 
       <hr>
 
-        <% if @user.city %>
+        <% if @user.city && @user.city != "" %>
 
           <div class="profile-left">
             <i class="fa fa-compass"></i> 
             <%= @user.city %>
           </div>
           <% end %>
-           <% if @user.email %>
+           <% if @user.email && @user.email != "" %>
            <div class="profile-left">
             <i class="fa fa-envelope-o"></i>
             <%= @user.email %>

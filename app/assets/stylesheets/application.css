@@ -101,6 +101,7 @@
  .profile-pic {
 
  	border-radius: 10px;
+ 	border: 2.0px solid #e7e7e7;
  	height: 275px;
  	width: 250px;
  
@@ -175,18 +176,25 @@
  /*Create New Event Page*/
 
 
- .new_event {
+ .new_event, .edit_user {
 
  	border: 3px solid #00b4ae;
   border-radius: 5px;
  	background-color: #f8f8f8;
  	padding: 20px 10px;
  	box-shadow: 3px 3px 3px 3px #777777;
-
+ 	margin: 50px;
 
 
  }
 
+.edit_user {
+
+	width: 50%;
+
+
+
+}
 
  /*Join event page*/
 

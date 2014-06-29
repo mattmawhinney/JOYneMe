@@ -20,7 +20,12 @@
 			<% if current_user %>
 					<span>
 							<%= link_to user_path(current_user) do %>
-									Hello, <%= current_user.username.capitalize %>!
+									Hello, 
+									<% if current_user.first_name && current_user.first_name != "" %>
+											<%= current_user.first_name.capitalize %>!
+									<% else %>
+									<%= current_user.username.capitalize %>!
+								<% end %>
 							<% end %>
 
 					</span>

@@ -61,7 +61,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     #make sure an image is submitted 
-    if params.keys.include?("user")
+    if params["user"]["email"] != "" && params["user"]["username"] != ""
+        # raise StandardError
+
         respond_to do |format|
           if @user.update(user_params)
             format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -74,7 +76,7 @@ class UsersController < ApplicationController
       else
 
          #need to redirect back to profile tab
-         redirect_to :back , notice: 'Please choose an image to upload.'
+         redirect_to :back , notice: 'Username and/or Email cannont be blank.'
 
       end
   end
