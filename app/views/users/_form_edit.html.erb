@@ -1,5 +1,35 @@
 <%= form_for @user, :url => user_path(@user), :html => { :multipart => true } do |f| %>
+  
+	<%= f.label :avatar, 'Profile Picture' %>
   <%= f.file_field :avatar %>
+
+   <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+   <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+ 	
+    <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
 		<div class="actions">
     <%= f.submit %>
   	</div>
