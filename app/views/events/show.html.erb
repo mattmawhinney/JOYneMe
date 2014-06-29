@@ -47,14 +47,19 @@
 					
 					<% if event_attendee.nil? %>
 
-						<%= form_for(@attendee) do |f| %>
+						<%= form_for(@attendee)  do |f| %>
+							
 							<%= f.hidden_field :event_id, value: @event.id %>
-	            <%= f.submit %>
+	            <%= f.submit "Join Event", class: "btn btn-lg btn-custom" %>
 	          <% end %> 
 
 	        <% else %>
 
-	        	<%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %>
+	        	 <%= link_to attendee_path(event_attendee.id), method: :delete, data: { confirm: 'Are you sure?' }   do %>
+            <button class="btn btn-lg btn-custom">
+              Unjoin
+            </button>
+            <% end %>
 
 	       	<% end %>
 
