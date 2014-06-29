@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  around_filter :set_time_zone
 
   def current_user
   	@current_user ||= User.find_by(id: session[:user_id])
@@ -35,5 +36,20 @@ class ApplicationController < ActionController::Base
       redirect_to user_path(current_user), notice: 'You may only see your page and edit your own profile.'
     end 
   end 
+
+
+private
+                                                                                 
+  def set_time_zone
+    old_time_zone = Time.zone
+    Time.zone = browser_timezone if browser_timezone.present?
+    yield
+  ensure
+    Time.zone = old_time_zone
+  end
+                                                                                   
+  def browser_timezone
+    cookies["browser.timezone"]
+  end
 
 end

@@ -43,6 +43,8 @@ gem 'binding_of_caller'
 gem "paperclip", "~> 4.1"
 
 
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

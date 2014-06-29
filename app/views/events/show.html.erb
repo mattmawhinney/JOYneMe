@@ -6,29 +6,26 @@
 	<div class="col-md-4 col-md-offset-4">
 		<h2><%= @event.description %></h2>
 		<hr>
+
+			<p><em>Happening:</em>
+			 <%= @event.date %> at <%= @event.time %>   
 		
+
+		<p><em>Meet at:</em>
 		<% if !@event.location.nil? %>
-			<p><em>Meet at: </em><%= @event.location.capitalize %> </p>
+			 <%= @event.location.capitalize %>,   
 		<% end %> 
 
-		<% if !@event.date.nil? %>
-			<p><em>Date: </em><%= @event.date.strftime("%A") %> </p>
-		<% end %> 
 
-		<% if !@event.datetime.nil? %>
-
-		<!-- shoud use time_tag here  -->
-			<p><em>Time:</em> <%= @event.datetime.strftime('%I:%M%p') %> </p>
-		
-		<% end %> 
+		<%= @event.street_address %>, <%= @event.zip_code %></p>
 
 		<hr> 
 
 		<!-- feel like I'm about to need a method -->
 		<div>
 
-
 		Organizer: <%= @event_owner.username %> <%= image_tag @event_owner.avatar.url(:thumb), class: "organizer pull-right" %>
+
 		<br>
 		<br>
 		<br>
@@ -39,10 +36,27 @@
 		<% if !@attendees.nil? %>
 			<%= render 'list_attendees' %>
 		<% else %>
-			<p>No users yet!</p>
+			<p>No one's coming wyth yet!</p>
 		<% end %> 
 
 		</div>
+
+		<hr>
+
+		<% event_attendee = @event.attendees.find_by user_id: current_user.id %>
+					
+					<% if event_attendee.nil? %>
+
+						<%= form_for(@attendee) do |f| %>
+							<%= f.hidden_field :event_id, value: @event.id %>
+	            <%= f.submit %>
+	          <% end %> 
+
+	        <% else %>
+
+	        	<%= link_to 'Unjoin', attendee_path(event_attendee.id)  , method: :delete, data: { confirm: 'Are you sure?' } %>
+
+	       	<% end %>
 
 		
 
