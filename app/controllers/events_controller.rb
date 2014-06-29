@@ -38,6 +38,8 @@ class EventsController < ApplicationController
     #variables for distance_of_time_in_words method 
     # @from_time = Time.now 
 
+    @attendee = Attendee.new
+
     
   end
 
@@ -56,7 +58,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
     # @event = Event.new(event_params)
- 
+
 
     respond_to do |format|
       if @event.save

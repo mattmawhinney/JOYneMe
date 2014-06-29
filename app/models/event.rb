@@ -23,21 +23,12 @@ class Event < ActiveRecord::Base
   end 
 
 
-
-
-  # def to_utc
-
-  # 	datetime.utc
-
-  # end 
-
   def date 
-
-
+    self.datetime.strftime("%A, %B %d")
   end 
 
   def time 
-
+    self.datetime.strftime("%I")
   end 
 
 end
