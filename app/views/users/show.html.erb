@@ -2,21 +2,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="profile-left">
+      <div class="profile-left text-center">
         
         <% if @user.avatar.url == "/images/original/missing.png" %>
-          <i class="fa fa-coffee place-holder"></i>
+          <i class="fa fa-coffee place-holder profile-pic"></i>
         <% else %>
-          <%= image_tag @user.avatar.url, class: "img-responsive profile-pic" %>
+          <%= image_tag @user.avatar.url(:medium), class: "profile-pic" %>
         <% end %>
-        <h4><%= @user.username.capitalize %></h4>
+        <h4 class="show-page-username"><%= @user.username.capitalize %></h4>
       </div>
       
-      <div class="profile-left text-center">
-           
-        
-        
-      </div>
+
       <hr>
 
         <% if @user.city %>
@@ -38,7 +34,7 @@
           </div>
         <hr>
           <%= link_to user_events_new_path(@user) do %>
-            <button class="btn btn-lg btn-custom">
+            <button class="btn btn-lg btn-custom btn-new-event">
               Create New Event
             </button>
           <% end %>

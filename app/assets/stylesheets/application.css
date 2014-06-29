@@ -51,10 +51,48 @@
 
  }
 
-   .navbar-brand a:link {
+
+   .navbar-header a:link {
 
 
 		color: #fff;
+
+ }
+
+
+ .navbar-header a:visited {
+
+
+		color: #fff;
+
+ }
+
+ .navbar-brand a:link {
+
+
+		color: #fff;
+
+ }
+
+ .nav-links {
+
+ 	margin-top: 10px;
+ 	margin-right: 20px;
+ 	font-size: 1.2em;
+
+
+ }
+
+  .nav-links a:link  {
+
+ 	color: #fff;
+
+ }
+
+
+ .nav-links a:visited  {
+
+ 	color: #fff;
 
  }
 
@@ -63,7 +101,15 @@
  .profile-pic {
 
  	border-radius: 10px;
+ 	height: 275px;
+ 	width: 250px;
  
+
+ }
+
+ .show-page-username {
+
+ 	font-weight: bold;
 
  }
 
@@ -75,7 +121,7 @@
 
  }
 
- .custom-table th {
+ .custom-table th, .custom-table td {
 
 
  	font-size: 1.2em;
@@ -83,14 +129,6 @@
 
  }
 
-
-.custom-table td {
-
-
-	text-align: center;
- 	font-size: 1.0em;
-
- }
 
 
  .event-link a:link {
@@ -106,10 +144,17 @@
 
  }
 
- .btn-custom:hover {
+ .btn-custom a:hover {
 
- 		color: #fff;
+ 		/*color: #fff;*/
+ 		text-decoration: none;
 
+
+ }
+
+ .btn-new-event {
+
+ 	margin-bottom: 50px;
 
  }
 
