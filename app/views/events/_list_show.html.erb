@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table custom-table">
 	<thead>
 		<tr>
 			<th>Event</th>
@@ -16,7 +16,7 @@
 		<% if event.has_not_passed? %>
 
 			<%= content_tag_for(:tr, event) do %>
-				<td>
+				<td class="event-link">
 					<%= link_to event_path(event) do %>
 							<%= event.description.capitalize %> 
 					<% end %>
@@ -42,7 +42,7 @@
 
 						<%= form_for @attendee do |f| %>
 							<%= f.hidden_field :event_id, value: event.id %>
-	            <%= f.submit "Join Event", :class => "btn btn-md btn-custom" %>
+	            <%= f.submit "GoWyth", :class => "btn btn-md btn-custom" %>
 	          <% end %> 
 
 	         

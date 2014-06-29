@@ -43,6 +43,8 @@
 
 		<hr>
 
+		<div class="text-center">
+
 		<% event_attendee = @event.attendees.find_by user_id: current_user.id %>
 					
 					<% if event_attendee.nil? %>
@@ -50,7 +52,7 @@
 						<%= form_for(@attendee)  do |f| %>
 							
 							<%= f.hidden_field :event_id, value: @event.id %>
-	            <%= f.submit "Join Event", class: "btn btn-lg btn-custom" %>
+	            <%= f.submit "GoWyth", class: "btn btn-lg btn-custom" %>
 	          <% end %> 
 
 	        <% else %>
@@ -63,7 +65,7 @@
 
 	       	<% end %>
 
-		
+		</div> <!-- text-center -->
 
 	</div>	
 

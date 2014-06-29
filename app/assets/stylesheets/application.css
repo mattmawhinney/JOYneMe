@@ -75,6 +75,28 @@
 
  }
 
+ .custom-table th {
+
+
+ 	font-size: 1.2em;
+ 	text-align: center;
+
+ }
+
+
+.custom-table td {
+
+
+	text-align: center;
+ 	font-size: 1.0em;
+
+ }
+
+
+ .event-link a:link {
+ 	text-decoration: underline;
+ }
+
 
  .btn-custom {
 
