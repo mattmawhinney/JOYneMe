@@ -12,7 +12,7 @@
         <% if @user.first_name && @user.first_name != "" %>
             <h4 class="show-page-username"><%= @user.first_name.capitalize %></h4>
           <% else %>
-           <h4 class="show-page-username"><%= @user.username.capitalize %></h4>
+           <h4 class="show-page-username"><%= @user.username %></h4>
         <% end %>
       </div>
       
