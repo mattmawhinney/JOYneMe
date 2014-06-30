@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :attendees
+  
 
   root to: 'users#index'
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 
   end 
+  resources :attendees, except: [:index,:show,:new,:edit,:update]
 
   get '/signin', to: 'sessions#new'
 

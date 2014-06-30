@@ -1,6 +1,6 @@
 class AttendeesController < ApplicationController
   before_action :set_attendee, only: [:show, :edit, :destroy, :update]
-  # before_action :set_destroy_attendee, only: [:destroy]
+  before_action :require_logged_in, only: [:create, :destroy]
 
   # GET /attendees
   # GET /attendees.json
