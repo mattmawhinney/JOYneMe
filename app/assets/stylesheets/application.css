@@ -42,17 +42,14 @@
  	/*border-color: */
  }
 
-  .navbar-brand {
+	.navbar-brand {
 
- 	/*font-family: 'Anton', sans-serif; */
  	font-family: 'Montserrat', sans-serif; 
- 	/*font-family: 'Bree Serif', serif;*/
  
-
  }
 
 
-   .navbar-header a:link {
+  .navbar-header a:link {
 
 
 		color: #fff;
@@ -68,7 +65,6 @@
  }
 
  .navbar-brand a:link {
-
 
 		color: #fff;
 
@@ -96,30 +92,6 @@
 
  }
 
- .btn-sign-in {
-
- 		font-family: 'Montserrat', sans-serif;
- 		background-color: #00b4ae;
- 		color: #fff;
- 		border: 3px solid #fff;
- 		border-radius: 10px;
- 		margin-left: 10px;
-
-
-
- }
-
- .btn-join {
-
- 		margin-top: 20px;
- 		margin-left: auto;
- 		margin-right: auto;
- 		display: block;
-
-
-
- }
-
 
 
 
@@ -129,7 +101,6 @@
  	border: 2.0px solid #e7e7e7;
  	height: 275px;
  	width: 250px;
- 
 
  }
 
@@ -142,41 +113,35 @@
  .place-holder {
 
  		font-size: 10em;
- 		
  		color: #00b4ae;
 
  }
 
- .custom-table th, .custom-table td {
 
+ /* buttons */
 
- 	font-size: 1.2em;
- 	text-align: center;
+ .btn-sign-in {
+
+ 		font-family: 'Montserrat', sans-serif;
+ 		background-color: #00b4ae;
+ 		color: #fff;
+ 		border: 3px solid #fff;
+ 		border-radius: 10px;
+ 		margin-left: 10px;
+
 
  }
 
- .index-table {
+ .btn-join {
 
- 	margin-top: 30px;
+ 		margin-top: 20px;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		display: block;
+
 
  }
 
-.index-table th, .index-table td {
-
-	font-size: 1.2em;
- 	
-
-
-
-}
-
-
-
-
-
- .event-link a:link {
- 	text-decoration: underline;
- }
 
 
  .btn-custom {
@@ -201,6 +166,44 @@
 
  }
 
+ .btn-create {
+
+ 	margin-top: 20px;
+ 	margin-right: auto;
+ 	margin-left: auto;
+ 	display: block;
+
+ }
+
+
+/*tables*/
+
+ .custom-table th, .custom-table td {
+
+ 	font-size: 1.2em;
+ 	text-align: center;
+
+ }
+
+ .index-table {
+
+ 	margin-top: 30px;
+
+ }
+
+.index-table th, .index-table td {
+
+	font-size: 1.2em;
+ 	
+}
+
+
+ .event-link a:link {
+ 	text-decoration: underline;
+ }
+
+
+
 
  .footer-text {
 
@@ -215,7 +218,7 @@
 
 
 
- /*Create New Event Page*/
+ /*Forms*/
 
 
  .new_event, .edit_user, .new_user {
@@ -247,8 +250,6 @@
 }
 
 
- /*Join event page*/
-
 
 .organizer {
 
@@ -268,7 +269,7 @@
 
 }
 
-/*Create Event Modal*/
+/* Modal Form*/
 
 .modal-header {
 
