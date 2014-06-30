@@ -14,6 +14,14 @@ class Event < ActiveRecord::Base
 
   end 
 
+  # def event_attendee_image
+  #   ids = self.attendees.map {|attendee| attendee.user_id}
+  #   users = User.find(ids)
+    
+
+
+  # end 
+
 
 
   def has_not_passed? 

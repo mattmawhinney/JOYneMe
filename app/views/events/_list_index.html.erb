@@ -1,20 +1,38 @@
-<table class="table">
+<table class="table index-table">
 	<thead>
 		<tr>
 			<th>Event</th>
-			<th>Location</th>
-			<th>Going</th>
+			<th>Neighborhood</th>
+			<th>Happening</th>
 		</tr>
 	</thead>
 	<tbody>
 		
-		<% @events.each do |event| %>
+		<% @events.order_by_time.each do |event| %>
 
+		<% if event.has_not_passed? %>
 			<%= content_tag_for(:tr, event) do %>
 				<td><%= event.description %> </td>
-				<td><%= event.location %> </td>
-				<td><%= event.users.count %> </td>
-						
+				<td><%= event.neighborhood %> </td>
+				<td>
+					<% from_time = Time.now.utc %>
+
+					<% to_time = event.datetime.utc %>
+
+					<!-- need to figure out how to properly work with dates, until then... -->
+					in <%= distance_of_time_in_words(from_time, to_time) %>
+
+				</td>
+
+				<td>
+
+
+
+
+				</td>
+
+			
+			<% end %>			
 		<% end %>
 	<% end %>
 

@@ -109,6 +109,23 @@
 
  }
 
+ .btn-join {
+
+ 		margin-top: 20px;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		display: block;
+
+
+
+ }
+
+.new_user {
+
+	margin-right: 50px;
+	width: 70%;
+
+}
 
 
  .profile-pic {
@@ -142,6 +159,23 @@
  	text-align: center;
 
  }
+
+ .index-table {
+
+ 	margin-top: 30px;
+
+ }
+
+.index-table th, .index-table td {
+
+	font-size: 1.2em;
+ 	
+
+
+
+}
+
+
 
 
 
@@ -189,7 +223,7 @@
  /*Create New Event Page*/
 
 
- .new_event, .edit_user {
+ .new_event, .edit_user, .new_user {
 
  	border: 3px solid #00b4ae;
   border-radius: 5px;
@@ -201,13 +235,14 @@
 
  }
 
-.edit_user {
+.edit_user, {
 
 	width: 50%;
 
 
-
 }
+
+
 
  /*Join event page*/
 
