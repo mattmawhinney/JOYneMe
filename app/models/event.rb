@@ -14,28 +14,13 @@ class Event < ActiveRecord::Base
 
   end 
 
-  # def event_attendee_image
-  #   ids = self.attendees.map {|attendee| attendee.user_id}
-  #   users = User.find(ids)
-    
-
-
-  # end 
-
-
 
   def has_not_passed? 
 
-    self.datetime.utc > Time.now.utc
+    self.datetime.utc.in_time_zone("Eastern Time (US & Canada)") > Time.now.in_time_zone("Eastern Time (US & Canada)")
 
   end 
 
-
-  #  def get_first_attendee
-
-  #   self.attendees.first.user_id
-
-  # end 
 
 
   def user_is_event_organizer?(current_user)
