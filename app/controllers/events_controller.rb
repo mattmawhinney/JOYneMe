@@ -135,6 +135,6 @@ class EventsController < ApplicationController
       # params[:event]
     end
 
-
+  
 
 end
