@@ -135,9 +135,6 @@ class EventsController < ApplicationController
       # params[:event]
     end
 
-    def restrict_to_current_user_and_event 
 
-
-    end 
 
 end
