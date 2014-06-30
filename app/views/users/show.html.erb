@@ -37,11 +37,15 @@
             Joined <%= @user.created_at.strftime("%b %d, %Y") %>
           </div>
         <hr>
-          <%= link_to user_events_new_path(@user) do %>
-            <button class="btn btn-lg btn-custom btn-new-event">
+         
+            <button class="btn btn-lg btn-custom btn-new-event" data-toggle="modal" data-target="#myModal">
               Create New Event
             </button>
-          <% end %>
+         
+
+          <%= render partial: 'events/modal' %>
+
+
    </div> <!-- col-md-3 -->
 
     <div class="col-md-9">
