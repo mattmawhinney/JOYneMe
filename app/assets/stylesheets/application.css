@@ -96,6 +96,19 @@
 
  }
 
+ .btn-sign-in {
+
+ 		font-family: 'Montserrat', sans-serif;
+ 		background-color: #00b4ae;
+ 		color: #fff;
+ 		border: 3px solid #fff;
+ 		border-radius: 10px;
+ 		margin-left: 10px;
+
+
+
+ }
+
 
 
  .profile-pic {
