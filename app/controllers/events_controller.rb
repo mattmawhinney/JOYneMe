@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:edit, :update, :destroy ]
   before_action :show_events_helper, only: [:show]
   before_action :require_logged_in, only: [:index, :new, :create, :edit, :update, :destroy]
-  before_action :restrict_to_current_user, only: [:edit, :update, :destroy]
+  # before_action :restrict_to_current_user, only: [:edit, :update, :destroy]
   
 
   # GET /events
@@ -95,7 +95,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Your event has been canceled.' }
       format.json { head :no_content }
     end
   end
@@ -134,4 +134,10 @@ class EventsController < ApplicationController
       params.require(:event).permit(:description, :location, :date, :time, :user_id, :datetime, :category, :zip_code, :street_address, :neighborhood)
       # params[:event]
     end
+
+    def restrict_to_current_user_and_event 
+
+
+    end 
+
 end

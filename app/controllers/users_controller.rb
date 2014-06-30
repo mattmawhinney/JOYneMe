@@ -16,17 +16,12 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
       @event = Event.new
-      @events = Event.all
+      @events = Event.all.order_by_time
       # @sorted_events = @events
       @attendee = Attendee.new   
     
    
   end
-
-  # def attendee_destroy(event_id) 
-  #   Attendee.where("user_id = ? AND #{event_id} = ?", params[:id])
-
-  # end 
 
   # GET /users/new
   def new

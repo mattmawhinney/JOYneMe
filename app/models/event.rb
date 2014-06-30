@@ -31,6 +31,29 @@ class Event < ActiveRecord::Base
   end 
 
 
+  #  def get_first_attendee
+
+  #   self.attendees.first.user_id
+
+  # end 
+
+
+  def user_is_event_organizer?(current_user)
+
+    #the organizer's attendee object will always be the first attendee object for a given event?
+    self.attendees.first.user_id == current_user.id
+
+  end 
+
+  def user_is_event_attendee?(current_user)
+
+    #returns true if current user is attending the event and false if not 
+
+    !(self.attendees.find_by user_id: current_user.id).nil?
+    
+
+  end
+
   def date 
     self.datetime.strftime("%A, %B %d")
   end 

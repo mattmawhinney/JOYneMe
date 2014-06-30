@@ -11,7 +11,7 @@
 	</thead>
 	<tbody>
 		
-		<% @events.order_by_time.each do |event| %>
+		<% @events.each do |event| %>
 
 		<% if event.has_not_passed? %>
 
@@ -32,30 +32,32 @@
 					<!-- need to figure out how to properly work with dates, until then... -->
 					in <%= distance_of_time_in_words(from_time, to_time) %></td>
 				<td> 
-					<!-- identify whehter the current user is an attendee of the event being iterated through
-					it feels like this method belongs in the users_controller but it is making use of 
-					the specific event that is being iterated through -->
+					<!-- identify whehter the current user is an attendee of the event being iterated through -->
 
-					<% event_attendee = event.attendees.find_by user_id: current_user.id %>
-					
-					<% if event_attendee.nil? %>
+					<% if event.user_is_event_organizer?(current_user) %>
+						 
+						 <%= link_to event_path(event), method: :delete, data: { confirm: 'Are you sure?' }   do %>
+	            <button class="btn btn-md btn-custom">
+	              Cancel Event
+	            </button>
+          	<% end %>
 
-						<%= form_for @attendee do |f| %>
+					<% elsif event.user_is_event_attendee?(current_user) %>
+
+						<!-- create delete link to attendee object for current_user and event being iterated over -->
+
+	           <%= link_to attendee_path(event.attendees.find_by user_id: current_user.id), method: :delete, data: { confirm: 'Are you sure?' }   do %>
+		            <button class="btn btn-md btn-custom">
+		              Unjoin
+		            </button>
+          	<% end %>
+
+	        <% else %> <!-- if current_user isn't event organize or going to event --> 
+
+	        	<%= form_for @attendee do |f| %>
 							<%= f.hidden_field :event_id, value: event.id %>
 	            <%= f.submit "GoWyth", :class => "btn btn-md btn-custom" %>
 	          <% end %> 
-
-	         
-
-	        <% else %>
-
-	         <%= link_to attendee_path(event_attendee.id), method: :delete, data: { confirm: 'Are you sure?' }   do %>
-            <button class="btn btn-md btn-custom">
-              Unjoin
-            </button>
-          <% end %>
-
-	        	
 
 	       	<% end %>
 
