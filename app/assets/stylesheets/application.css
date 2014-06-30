@@ -120,14 +120,7 @@
 
  }
 
-.new_user {
 
-	margin-right: 50px;
-	width: 70%;
-	padding-top: 30px;
-
-
-}
 
 
  .profile-pic {
@@ -244,6 +237,14 @@
 
 }
 
+.new_user {
+
+	margin-right: 50px;
+	width: 70%;
+	padding-top: 10px;
+
+
+}
 
 
  /*Join event page*/
