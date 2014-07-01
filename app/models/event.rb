@@ -44,7 +44,7 @@ class Event < ActiveRecord::Base
   end 
 
   def time 
-    self.datetime.strftime("%H:%M%p")
+    self.datetime.strftime("%I:%M%p")
   end 
 
 end
