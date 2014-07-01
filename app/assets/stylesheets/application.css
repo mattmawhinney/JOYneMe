@@ -293,3 +293,13 @@
 	font-weight: bold;
 
 }
+
+
+/*notice */
+
+#notice {
+	margin-top: 15px;
+
+	color: green;
+
+}

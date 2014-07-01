@@ -46,7 +46,7 @@ class UsersController < ApplicationController
         format.html { redirect_to user_path(current_user), notice: 'Welcome to WythMe!' }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { redirect_to root_path, notice: 'Please make sure you enter a username, email, password, and password confirmation' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
