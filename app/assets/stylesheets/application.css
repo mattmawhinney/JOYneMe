@@ -35,6 +35,11 @@
  /*@import url(http://fonts.googleapis.com/css?family=Lobster+Two);*/
  @import url(http://fonts.googleapis.com/css?family=Lobster);
 
+
+ /* backgrounds */
+
+
+
  
  .navbar-default {
 
@@ -101,6 +106,7 @@
  	border: 2.0px solid #e7e7e7;
  	height: 275px;
  	width: 250px;
+ 	margin-top: 20px;
 
  }
 
@@ -210,9 +216,12 @@
  	font-family: 'Lobster', cursive;
  	/*font-family: 'Lobster Two', cursive;*/
  	color: #fff;
- 	margin-top: 15px;
- 	font-size: 1.25em;
+ 	font-size: 1.4em;
  	word-spacing: 1.5px;
+	padding-top: 10px;
+	padding-bottom: -10px;
+	margin-bottom: 0px; 
+	letter-spacing: 0.6px;
 
  }
 
@@ -229,6 +238,13 @@
  	padding: 20px 10px;
  	box-shadow: 3px 3px 3px 3px #777777;
  	margin: 50px;
+
+ }
+
+ .new_event {
+
+
+ 	margin-bottom: 100px;
 
  }
 
@@ -301,5 +317,15 @@
 	margin-top: 15px;
 
 	color: green;
+
+}
+
+
+
+.index-left {
+
+	/*background: linear-gradient(right top, #fff 100%, #f8f8f8; 0%);*/
+	/*background: linear-gradient(right top, #901A1C 0%, #ffffff 100%);*/
+
 
 }
