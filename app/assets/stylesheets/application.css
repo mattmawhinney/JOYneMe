@@ -99,7 +99,6 @@
 
 
 
-
  .profile-pic {
 
  	border-radius: 10px;
@@ -209,6 +208,16 @@
  }
 
 
+ footer {
+
+ 	margin-top: -20px; 
+ 	margin-bottom: 0px;
+ 	padding-bottom: 20px;
+	
+
+
+ }
+
 
 
  .footer-text {
@@ -220,7 +229,6 @@
  	word-spacing: 1.5px;
 	padding-top: 10px;
 	padding-bottom: -10px;
-	margin-bottom: 0px; 
 	letter-spacing: 0.6px;
 
  }
@@ -260,7 +268,8 @@
 	width: 80%;
 	padding-top: 10px;
 	padding-left: 20px;
-	margin-top: 90px;
+	margin-top: 70px;
+	margin-bottom: 80px;
 	margin-left: 10px;
 
 }
@@ -314,7 +323,8 @@
 /*notice */
 
 #notice {
-	margin-top: 15px;
+	margin-top: 10px;
+	margin-bottom: -10px;
 
 	color: green;
 
@@ -327,5 +337,12 @@
 	/*background: linear-gradient(right top, #fff 100%, #f8f8f8; 0%);*/
 	/*background: linear-gradient(right top, #901A1C 0%, #ffffff 100%);*/
 
+
+}
+
+.main-menu {
+
+
+	margin-top: 15px;
 
 }
