@@ -15,9 +15,9 @@
 				<td><%= event.description %> </td>
 				<td><%= event.neighborhood %> </td>
 				<td>
-					<% from_time = Time.now.utc %>
+					<% from_time = Time.now %>
 
-					<% to_time = event.datetime.utc %>
+					<% to_time = event.datetime %>
 
 					<!-- need to figure out how to properly work with dates, until then... -->
 					in <%= distance_of_time_in_words(from_time, to_time) %>

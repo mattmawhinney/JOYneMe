@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
 
   def has_not_passed? 
 
-    self.datetime.utc.in_time_zone("Eastern Time (US & Canada)") > Time.now.in_time_zone("Eastern Time (US & Canada)")
+    self.datetime > Time.now
 
   end 
 
