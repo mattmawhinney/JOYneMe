@@ -9,6 +9,7 @@ gem 'pg'
 
 group :production do 
 	gem 'rails_12factor'
+	gem 'aws-sdk'
 
 end
 # Use SCSS for stylesheets
@@ -41,7 +42,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 
 gem "paperclip", "~> 4.1"
-gem 'aws-sdk'
+
 
 
 
