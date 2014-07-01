@@ -59,9 +59,17 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     # @event = Event.new(event_params)
 
+    
 
     respond_to do |format|
-      if @event.save
+
+
+      if !@event.has_not_passed?
+
+        format.html { redirect_to user_path(@event.user), notice: 'Please create an event for a future date and time'}
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+
+      elsif @event.save 
         #add the creator of an event as an attendee
 
         @attendee = @event.attendees.create(user_id: current_user.id)
@@ -69,9 +77,7 @@ class EventsController < ApplicationController
         format.html { redirect_to user_path(@event.user), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
 
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+     
       end
     end
   end
