@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	has_secure_password 
 	#need to include :allow_nil options hash to allow for proper updating
 	#otherwise creates problems with validating/password_digest
-	validates_length_of   :password, :minimum => 8, :allow_nil => true
+	validates_length_of   :password, :minimum => 2, :allow_nil => true
 
 	validates_presence_of :username, :email
 	validates_length_of   :username, :maximum => 30

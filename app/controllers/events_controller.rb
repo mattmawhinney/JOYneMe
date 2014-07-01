@@ -64,11 +64,13 @@ class EventsController < ApplicationController
     respond_to do |format|
 
 
-      if !@event.has_not_passed?
+      if !@event.has_not_passed? 
 
         format.html { redirect_to user_path(@event.user), notice: 'Please create an event for a future date and time'}
         format.json { render json: @event.errors, status: :unprocessable_entity }
 
+      elsif (params["event"]["description"] === "" || params["event"]["location"] == "" || params["event"]["zip_code"] == "" || params["event"]["street_address"] == "" || params["event"]["neighborhood"] == "")
+        format.html { redirect_to user_path(@event.user), notice: 'Please fill in all information for your event.'}
       elsif @event.save 
         #add the creator of an event as an attendee
 
