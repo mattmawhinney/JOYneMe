@@ -209,12 +209,9 @@
 
 
  footer {
-
- 	margin-top: -20px; 
- 	margin-bottom: 0px;
- 	padding-bottom: 20px;
 	
-
+    position: fixed;
+    bottom: 0;
 
  }
 
